@@ -4,13 +4,17 @@ import { environment } from '../../environments/environment';
 import {Observable, of} from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ThrowStmt } from '@angular/compiler';
+import { EquipmentItemComponent } from '../equipment-item/equipment-item.component';
 
 @Component({
   selector: 'app-equipment',
   templateUrl: './equipment.component.html',
-  styleUrls: ['./equipment.component.css']
+  styleUrls: ['./equipment.component.css'],
 })
 export class EquipmentComponent implements OnInit {
+
+  equipment: any;
+  errorMessage: any;
 
   constructor(private http: HttpClient) {
     this.getEquipment()
@@ -22,9 +26,8 @@ export class EquipmentComponent implements OnInit {
     });
   }
 
-  equipment: any;
-  errorMessage: any;
-  
+
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); // log to console instead

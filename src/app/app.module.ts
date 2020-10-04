@@ -8,12 +8,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BackendInterceptor} from './backend-interceptor/BackendInterceptor';
 import {HomeComponent} from './home/home.component';
 import { EquipmentComponent } from './equipment/equipment.component';
+import { EquipmentItemComponent } from './equipment-item/equipment-item.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
         EquipmentComponent,
+        EquipmentItemComponent,
     ],
     imports: [
         BrowserModule,
