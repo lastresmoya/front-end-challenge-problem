@@ -8,7 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EquipmentItemComponent implements OnInit {
   @Input() item;
 
-  constructor() { }
+  open: boolean;
+
+  constructor() {
+    this.open = false;
+  }
 
 
   ngOnInit() {

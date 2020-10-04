@@ -1,6 +1,7 @@
 <div 
       class="equipment-item"
       *ngIf="item.value.active"
+      (click)="open = !open"
       [ngClass]="{
         'bgWarning': !item.value.manufacturer || !item.value.equipment_type
       }">
@@ -29,8 +30,8 @@
             <!-- {{item.value.equipment_photos | json}} -->
           </div>
         </div>
-        <!-- <div class="equipment-item-body" *ngIf="open">
+        <div class="equipment-item-body" *ngIf="open">
           Hey
-        </div> -->
+        </div>
       </div>
     </div>
