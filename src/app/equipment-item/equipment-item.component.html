@@ -7,31 +7,45 @@
       }">
       <div>
         <div class="equipment-item-top">
-          <!-- <div *ngIf="item.value.equipment_photos && item.value.equipment_photos !== 1337 ; else noPhotos"> -->
-          <!-- <div *ngIf="item.value.equipment_photos"> -->
           <div *ngFor="let image of item.value.equipment_photos | keyvalue" >
             <div class="equipment-item-image">
               <img [src]="image.value.thumbnail_url" alt="">
             </div>
           </div>
-          <!-- </div> -->
-          <!-- <ng-template #noPhotos >
-            <div class="no-photos">
-              NO UNIT PHOTOS
-            </div>
-          </ng-template> -->
           <div class="equipment-description">
             <h4 style="text-transform: uppercase; font-size: 1rem">{{item.value.description}}</h4>
-            <!-- <div>Model number: {{item.value.model_number}}</div>
-            <div>Serial Number: {{item.value.serial_number}}</div> -->
             <div *ngIf="item.value.equipment_type" class="label label-muted">{{item.value.equipment_type}}</div>
             <div *ngIf="item.value.manufacturer" class="label label-blue">{{item.value.manufacturer}}</div>
-
-            <!-- {{item.value.equipment_photos | json}} -->
           </div>
         </div>
         <div class="equipment-item-body" *ngIf="open">
-          Hey
+          <!-- Left -->
+          <div>
+            <h5>Manufacturer</h5>
+            <div style="margin-bottom: 1rem">{{item.value.manufacturer}}</div>
+            <h5>Model #</h5>
+            <div style="margin-bottom: 1rem">{{item.value.model_number}}</div>
+            <h5>Equipment Type</h5>
+            <div style="margin-bottom: 1rem">{{item.value.equipment_type}}</div>
+            <h5>Serial #</h5>
+            <div style="margin-bottom: 1rem">{{item.value.serial_number}}</div>
+          </div>
+          <!-- Right -->
+          <div>
+            <h5>Unit photos</h5>
+            <div *ngIf="item.value.equipment_photos && item.value.equipment_photos !== 1337 ; else noPhotos">
+              <div *ngFor="let image of item.value.equipment_photos | keyvalue" >
+                <div class="equipment-item-image">
+                  <img [src]="image.value.thumbnail_url" alt="">
+                </div>
+              </div>
+            </div>
+            <ng-template #noPhotos >
+              <div class="no-photos">
+                NO UNIT PHOTOS
+              </div>
+            </ng-template>
+          </div>
         </div>
       </div>
     </div>
